@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>For You</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#0f172a;
+color:white;
+text-align:center;
+overflow:hidden;
+}
+
+.container{
+padding:80px 20px;
+position:relative;
+z-index:2;
+}
+
+h1{
+font-size:55px;
+}
+
+p{
+max-width:600px;
+margin:auto;
+line-height:1.6;
+}
+
+#days{
+font-size:28px;
+margin-top:20px;
+color:#fb7185;
+}
+
+.slider{
+margin-top:40px;
+}
+
+.slider img{
+width:280px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+
+.heart{
+position:fixed;
+bottom:-20px;
+font-size:20px;
+animation:float 6s linear infinite;
+opacity:0.7;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+100%{transform:translateY(-110vh);}
+}
+
+</style>
+
+</head>
+
+<body>
+<audio id="music" loop>
+  <source src="nhac.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+document.addEventListener("click", function () {
+  const music = document.getElementById("music");
+  music.volume = 0.7;
+  music.play();
+}, { once: true });
+</script><div class="container">
+
+<h1>Gửi người anh nhớ nhất ❤️</h1>
+
+<p>
+Có những người chỉ xuất hiện một lần trong đời  
+nhưng lại để lại khiến ta nhớ rất lâu.
+</p>
+
+
+<div class="slider">
+<img id="slide" src="https://picsum.photos/300/200">
+</div>
+
+<p style="margin-top:40px; max-width:600px; margin-left:auto; margin-right:auto; line-height:1.8;">
+8/3 này dù có thể không được ở bên nhau, nhưng lòng anh luôn hướng về em.<br><br>
+
+Chúc bé iu ngày 8/3 thật vui, luôn rạng rỡ và nhớ đến anh nhé. Sớm gặp lại em!<br><br>
+
+<b>Yêu thương ❤️</b>
+</p>
+
+</div>
+
+<audio autoplay loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+</audio>
+
+<script>
+
+document.body.addEventListener("click", function(){
+var music = document.getElementById("music");
+music.volume = 0.5;
+music.play();
+},{once:true});
+var images = [
+"images/anh1.jpg",
+"images/anh2.jpg",
+"images/anh3.jpg",
+"images/anh4.jpg",
+"images/anh5.jpg"
+];
+
+var i=0;
+
+setInterval(function(){
+i++;
+if(i>=images.length){i=0;}
+document.getElementById("slide").src = images[i];
+},3000);
+
+function createHeart(){
+
+var heart = document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+}
+
+setInterval(createHeart,500);
+
+</script>
+
+</body>
+</html>
